@@ -17,15 +17,18 @@ namespace EasyCacheService.Caches
 
         public async Task<byte[]> GetCacheAsync(Guid guid)
         {
-           
+            var toBeReturned = await Task.Run(() =>
+            {
                 _memoryCache.TryGetValue(guid, out Byte[] cacheEntry);
                 return cacheEntry;
-            
+            });
+            return toBeReturned;
         }
 
         public async Task SetCacheAsync(byte[] byteArray, Guid guid)
         {
-           
+            await Task.Run(() =>
+            {
                 var cacheExpiryOptions = new MemoryCacheEntryOptions
                 {
                     AbsoluteExpiration = DateTime.Now.AddMinutes(5),
@@ -34,7 +37,7 @@ namespace EasyCacheService.Caches
                     Size = 1024,
                 };
                 _memoryCache.Set(guid, byteArray, cacheExpiryOptions);
-           
+            });
         }
 
     }
