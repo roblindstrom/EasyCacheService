@@ -23,7 +23,6 @@ namespace EasyCacheService.Caches
 
         public async Task SetCacheAsync(byte[] byteArray, Guid guid)
         {
-
             var options = new DistributedCacheEntryOptions()
            .SetAbsoluteExpiration(DateTime.Now.AddMinutes(10))
            .SetSlidingExpiration(TimeSpan.FromMinutes(2));
