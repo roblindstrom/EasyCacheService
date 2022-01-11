@@ -1,4 +1,5 @@
-﻿using EasyCacheService.Services;
+﻿using EasyCacheService.Factories;
+using EasyCacheService.Services;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace EasyCacheService
@@ -7,7 +8,9 @@ namespace EasyCacheService
     {
         public static IServiceCollection EzCacheServices(this IServiceCollection services)
         {
-            services.AddScoped<ICacheService, CacheService>();
+            services.AddScoped(typeof(ICacheService<>), typeof(CacheService<>));
+
+            services.AddScoped<ICacheFactory, CacheFactory>();
 
             services.AddDistributedMemoryCache();
 
