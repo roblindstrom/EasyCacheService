@@ -4,7 +4,7 @@
 		<TargetFramework>net6.0</TargetFramework>
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
-		<Version>1.0.2.3</Version>
+		<Version>1.0.2.4</Version>
 		<Authors>Robin Lindström</Authors>
 		<Description>Easy to use service for Distributed and InMemory caches</Description>
 		<PackageProjectUrl>https://github.com/roblindstrom/EasyCacheService

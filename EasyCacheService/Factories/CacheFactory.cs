@@ -15,8 +15,8 @@ namespace EasyCacheService.Factories
         private readonly IMemoryCache _memoryCache;
         public CacheFactory(IDistributedCache distributedCache, IMemoryCache memoryCache)
         {
-            _distributedCache = distributedCache;
-            _memoryCache = memoryCache;
+            _distributedCache = distributedCache ?? throw new ArgumentNullException(nameof(distributedCache));
+            _memoryCache = memoryCache ?? throw new ArgumentNullException(nameof(memoryCache));
         }
         public ICache GetCache(CacheName name)
         {

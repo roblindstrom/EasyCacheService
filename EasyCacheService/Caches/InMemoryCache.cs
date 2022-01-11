@@ -12,14 +12,14 @@ namespace EasyCacheService.Caches
         private readonly IMemoryCache _memoryCache;
         public InMemoryCache(IMemoryCache memoryCache)
         {
-            _memoryCache = memoryCache;
+            _memoryCache = memoryCache ?? throw new ArgumentNullException(nameof(memoryCache));
         }
 
         public async Task<byte[]> GetCacheAsync(Guid guid)
         {
             var toBeReturned = await Task.Run(() =>
             {
-                _memoryCache.TryGetValue(guid, out Byte[] cacheEntry);
+                var cacheEntry = _memoryCache.Get<Byte[]>(guid);
                 return cacheEntry;
             });
             return toBeReturned;

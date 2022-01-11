@@ -12,7 +12,7 @@ namespace EasyCacheService.Caches
         private readonly IDistributedCache _distributedCache;
         public DistributedCache(IDistributedCache distributedCache)
         {
-            _distributedCache = distributedCache;
+            _distributedCache = distributedCache ?? throw new ArgumentNullException(nameof(distributedCache));
         }
 
         public async Task<byte[]> GetCacheAsync(Guid guid)

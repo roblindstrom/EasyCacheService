@@ -26,9 +26,9 @@ namespace EasyCacheService.Services
             return JsonConvert.DeserializeObject<List<T>>(asString);
         }
 
-        public byte[] Serialize(List<T> listOfInts)
+        public byte[] Serialize(List<T> listOfObjects)
         {
-            var asString = JsonConvert.SerializeObject(listOfInts, SerializerSettings);
+            var asString = JsonConvert.SerializeObject(listOfObjects, SerializerSettings);
             return Encoding.Unicode.GetBytes(asString);
         }
         public byte[] Serialize(List<string> listOfString)

@@ -5,6 +5,10 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyCacheService", "EasyCacheService\EasyCacheService.csproj", "{DE195E14-1BFF-40B3-8373-F154703C4BDB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyCacheServiceTests", "EasyCacheServiceTests\EasyCacheServiceTests.csproj", "{45154208-7D59-46A8-BEDE-79955333012E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{995C5D65-49C8-422B-B9B1-4EFFA9C1AD16}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,9 +19,16 @@ Global
 		{DE195E14-1BFF-40B3-8373-F154703C4BDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DE195E14-1BFF-40B3-8373-F154703C4BDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DE195E14-1BFF-40B3-8373-F154703C4BDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45154208-7D59-46A8-BEDE-79955333012E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45154208-7D59-46A8-BEDE-79955333012E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45154208-7D59-46A8-BEDE-79955333012E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45154208-7D59-46A8-BEDE-79955333012E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{45154208-7D59-46A8-BEDE-79955333012E} = {995C5D65-49C8-422B-B9B1-4EFFA9C1AD16}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {97B4E0AC-5433-4F4C-A076-BB64BD943A81}

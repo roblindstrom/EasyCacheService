@@ -36,18 +36,29 @@ public class CacheExampleClass
 Use the factory to get the kind of cache you want to use and then use the service methods to get/set information to the cache.
 The CacheKey is a guid that you setup to specify which cache you want to access. Making it possible to have several caches live at once.
 ```c#
-using EasyCacheService;
 
 public class CacheExampleClass
 {
+	private readonly ICacheFactory _cacheFactory;
+        private readonly ICacheService<ObjectToBeCached> _cacheService;
+
+
+        public CacheExampleClass(ICacheFactory cacheFactory, ICacheService<LineItemResponse> cacheService)
+        {
+            _cacheFactory=cacheFactory;
+            _cacheService=cacheService;
+        }
+
 	public async Task AddObjectToCache(ObjectToBeCached Object, Guid CacheKey)
         {
-            var listOfObjects = new List<(ObjectToBeCached>();
+            var listOfObjects = new List<ObjectToBeCached>();
             
             //Get the cache you want from the factory, CacheName.InMemoryCache or CacheName.DistributedCache
             var cache = _cacheFactory.GetCache(CacheName.InMemoryCache);
 	    
+	    //Checks if something already exists in cache
             var ObjectsFromCache = await cache.GetCacheAsync(CacheKey);
+
             //If cache is empty it will return null
             if (cartFromCache != null)
             {
@@ -55,7 +66,7 @@ public class CacheExampleClass
                 listOfObjects = _cacheService.DeserializeToListOfObjects(ObjectsFromCache);
             }
             //Add the new object to the cache
-            listOfObjects(Object);
+            listOfObjects.Add(Object);
             //Save everything into the cache
             await cache.SetCacheAsync(_cacheService.Serialize(listOfLineItems), CacheKey);
         }
