@@ -13,6 +13,7 @@ namespace EasyCacheService
             services.AddScoped<ICacheFactory, CacheFactory>();
 
             services.AddDistributedMemoryCache();
+            services.AddMemoryCache();
 
             return services;
         }
