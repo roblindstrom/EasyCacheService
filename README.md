@@ -25,7 +25,7 @@ public class CacheExampleClass
         private readonly ICacheService<ObjectToBeCached> _cacheService;
 
 
-        public CacheExampleClass(ICacheFactory cacheFactory, ICacheService<LineItemResponse> cacheService)
+        public CacheExampleClass(ICacheFactory cacheFactory, ICacheService<ObjectToBeCached> cacheService)
         {
             _cacheFactory=cacheFactory;
             _cacheService=cacheService;
