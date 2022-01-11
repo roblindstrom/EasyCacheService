@@ -1,11 +1,19 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-	<Version>1.0</Version>
-  </PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Version>1.0.1</Version>
+		<Authors>Robin Lindström</Authors>
+		<Description>Easy to use service for Distributed and InMemory caches</Description>
+		<PackageProjectUrl>https://github.com/roblindstrom/EasyCacheService
+		</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/roblindstrom/EasyCacheService</RepositoryUrl>
+		<!-- <ApplicationIcon>.ico fil som representerar ditt -->
+		<!-- projekt</ApplicationIcon> -->
+		<!-- <PackageIcon>.png fil som representerar ditt projekt</PackageIcon> -->
+</PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="6.0.0" />

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace EasyCacheService.Factories
 {
-    public class CacheFactory
+    public class CacheFactory : ICacheFactory
     {
         private readonly IDistributedCache _distributedCache;
         private readonly IMemoryCache _memoryCache;
