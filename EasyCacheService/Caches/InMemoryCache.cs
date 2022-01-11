@@ -19,7 +19,7 @@ namespace EasyCacheService.Caches
         {
             await Task.Run(() =>
             {
-                var cacheEntry = _memoryCache.Get<byte[]>(guid);
+                _memoryCache.TryGetValue(guid, out Byte[] cacheEntry);
                 return cacheEntry;
             });
             return null;
@@ -29,7 +29,14 @@ namespace EasyCacheService.Caches
         {
             await Task.Run(() =>
             {
-                _memoryCache.Set(guid.ToString(), byteArray);
+                var cacheExpiryOptions = new MemoryCacheEntryOptions
+                {
+                    AbsoluteExpiration = DateTime.Now.AddMinutes(5),
+                    Priority = CacheItemPriority.High,
+                    SlidingExpiration = TimeSpan.FromMinutes(2),
+                    Size = 1024,
+                };
+                _memoryCache.Set(guid, byteArray, cacheExpiryOptions);
             });
         }
 
