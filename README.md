@@ -62,13 +62,13 @@ public class CacheExampleClass
             //If cache is empty it will return null
             if (cartFromCache != null)
             {
-		//Since cache was not empty, collect the objects from the cache
+		//Since cache was not empty, deserialize the objects from the cache
                 listOfObjects = _cacheService.DeserializeToListOfObjects(ObjectsFromCache);
             }
-            //Add the new object to the cache
+            //Add the new object to the list
             listOfObjects.Add(Object);
             //Save everything into the cache
-            await cache.SetCacheAsync(_cacheService.Serialize(listOfLineItems), CacheKey);
+            await cache.SetCacheAsync(_cacheService.Serialize(listOfObjects), CacheKey);
         }
 }
 ```
