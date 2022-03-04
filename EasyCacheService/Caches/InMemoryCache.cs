@@ -31,7 +31,7 @@ namespace EasyCacheService.Caches
             {
                 var cacheExpiryOptions = new MemoryCacheEntryOptions
                 {
-                    AbsoluteExpiration = DateTime.Now.AddMinutes(5),
+                    AbsoluteExpiration = DateTime.Now.AddMinutes(10),
                     Priority = CacheItemPriority.High,
                     SlidingExpiration = TimeSpan.FromMinutes(2),
                     Size = 1024,
